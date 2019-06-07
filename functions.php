@@ -1,3 +1,4 @@
+<?php
 //register an acf block contact form
 function my_acf_contactForm() {
   // check function exists
