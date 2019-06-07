@@ -42,7 +42,7 @@ endif; ?>
 	  $label = get_sub_field('label');
 
             switch ($label) {
-              case 'nom': ?>
+              case 'name': ?>
                 <label for="<?php echo $label; ?>"><?php echo $label; ?></label>
             <input type="text" name="<?php echo $label; ?>" id="<?php echo $label; ?>" value="<?= isset($_SESSION['input']['nom']) ? $_SESSION['input']['nom']:'';   ?>" /><?php
                 break;
@@ -50,15 +50,15 @@ endif; ?>
                 <label for="<?php echo $label; ?>"><?php echo $label; ?></label>
             <input type="email" name="<?php echo $label; ?>" id="<?php echo $label; ?>" value="<?= isset($_SESSION['input']['email']) ? $_SESSION['input']['email']:'';   ?>" /><?php
                 break;
-              case 'téléphone': ?>
+              case 'phone': ?>
                 <label for="<?php echo $label; ?>"><?php echo $label; ?></label>
                 <input type="text" name="<?php echo $label; ?>" id="<?php echo $label; ?>" value="<?= isset($_SESSION['input']['téléphone']) ? $_SESSION['input']['téléphone']:'';   ?>" /><?php
                 break;
-               case 'site web': ?>
+               case 'web site': ?>
                 <label for="<?php echo $label; ?>"><?php echo $label; ?></label>
                 <input type="url" name="<?php echo $label; ?>" id="<?php echo $label; ?>" value="<?= isset($_SESSION['input']['site web']) ? $_SESSION['input']['site web']:'';   ?>" /><?php
                 break;
-               case 'sujet': ?>
+               case 'subject': ?>
                 <label for="<?php echo $label; ?>"><?php echo $label; ?></label>
                 <input type="text" name="<?php echo $label; ?>" id="<?php echo $label; ?>" value="<?= isset($_SESSION['input']['sujet']) ? $_SESSION['input']['sujet']:'';   ?>" /><?php
                 break;
