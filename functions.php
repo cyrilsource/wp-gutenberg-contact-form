@@ -29,9 +29,9 @@ function contact_form() {
 
           $errors = [];
 
-          if (isset($_POST['nom'])) {
-            if(!array_key_exists('nom', $_POST) || $_POST['nom'] == '') {
-                $errors['nom'] = "You forgot your name";
+          if (isset($_POST['name'])) {
+            if(!array_key_exists('name', $_POST) || $_POST['name'] == '') {
+                $errors['name'] = "You forgot your name";
             }
           }
 
@@ -41,15 +41,15 @@ function contact_form() {
             }
           }
 
-          if (isset($_POST['téléphone'])) {
-            if(!array_key_exists('téléphone', $_POST) || $_POST['téléphone'] == '' || !preg_match("#[0-9]#", $_POST['téléphone'])) {
-                $errors['téléphone'] = "no valid phone";
+          if (isset($_POST['phone'])) {
+            if(!array_key_exists('phone', $_POST) || $_POST['phone'] == '' || !preg_match("#[0-9]#", $_POST['name'])) {
+                $errors['phone'] = "no valid phone";
             }
           }
 
-          if (isset($_POST['site web'])) {
-            if(!array_key_exists('site web', $_POST) || $_POST['site web'] == '' || !filter_var($_POST['site web'], FILTER_VALIDATE_URL)) {
-              $errors['site web'] = "no valid web site";
+          if (isset($_POST['web site'])) {
+            if(!array_key_exists('site web', $_POST) || $_POST['web site'] == '' || !filter_var($_POST['web site'], FILTER_VALIDATE_URL)) {
+              $errors['web site'] = "no valid web site";
             }
           }
 
