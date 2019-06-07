@@ -5,18 +5,18 @@
  * This is the template that displays the contact form block.
  */
 
-$message_succes = get_field('message_de_succes');
-$text_bouton_envoi = get_field('texte_bouton_envoi');
-$couleur_ = get_field('couleur_');
-$couleur_texte_bouton_envoi = get_field('couleur_texte_bouton_envoi');
-$couleur_hover = get_field('couleur_hover');
-$taille_de_la_font_du_message_denvoi = get_field('taille_de_la_font_du_message_denvoi');
+$message_success = get_field('message_succes');
+$text_bouton_send = get_field('texte_bouton_send');
+$color_ = get_field('color_');
+$color_text_bouton_send = get_field('color_text_bouton_send');
+$color_hover = get_field('color_hover');
+$size_font_sent_message = get_field('size_font_sent_message');
 $to = get_field('to');
 
 if (isset($_GET['success'])) {
   $datas = $_GET['success']; ?>
   <div class="alert-message success">
-    <span><?php echo $message_succes; ?></span></br>
+    <span><?php echo $message_success; ?></span></br>
     <span><strong><?php echo $datas; ?></strong></span>
   </div>
 <?php }
@@ -34,13 +34,12 @@ endif; ?>
 <div class="form1">
 
   <?php if( have_rows('input') ): ?>
-       <form action="#" id="contactForm" method="post">
-        <?php wp_nonce_field('contact-form', 'contact-verif');
+    <form action="#" id="contactForm" method="post">
+    <?php wp_nonce_field('contact-form', 'contact-verif');
     // loop through the rows of data
-      while ( have_rows('input') ) : the_row();
-
-          // display a sub field value
-          $label = get_sub_field('label');
+    while ( have_rows('input') ) : the_row();
+	  // display a sub field value
+	  $label = get_sub_field('label');
 
             switch ($label) {
               case 'nom': ?>
@@ -70,8 +69,6 @@ endif; ?>
             }
 
       endwhile; ?>
-      <input type="hidden" name="action" value="contact" />
-			<?php wp_nonce_field('ajax_contact_nonce', 'security');?>
       <button id="submit" type="submit"><?php echo $text_bouton_envoi; ?></button>
       <input type="hidden" name="submitted" id="submitted" value="true" />
       <input type="hidden" name="to" id="to" value="<?php echo $to; ?>" />
@@ -89,23 +86,23 @@ unset($_SESSION['input']);
 
 <style type="text/css">
 .form1 button {
-  background-color: <?php echo $couleur_; ?>;
-  color:  <?php echo $couleur_texte_bouton_envoi; ?>;
+  background-color: <?php echo $color_; ?>;
+  color:  <?php echo $color_text_bouton_send; ?>;
   padding: 12px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   float: right;
   margin-top: 10px;
-  font-size: <?php echo $taille_de_la_font_du_message_denvoi; ?>px;
+  font-size: <?php echo $size_font_sent_message; ?>px;
 }
 
 .form1 button:hover {
-  background-color: <?php echo $couleur_hover; ?>;
+  background-color: <?php echo $color_hover; ?>;
 }
 
 .alert-message.success {
-  background-color: <?php echo $couleur_; ?>;
+  background-color: <?php echo $color_; ?>;
   padding: 10px;
   line-height: 2em;
 }
