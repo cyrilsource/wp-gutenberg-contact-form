@@ -12,10 +12,7 @@ function my_acf_contactForm() {
     'category'        => 'common',
     'icon'            => 'email-alt',
     'keywords'        => array( 'contact'),
-    'mode'			      => 'preview',
-    'enqueue_assets' 	=> function(){
-      wp_enqueue_style( 'block-contact', get_template_directory_uri() . '/template-parts/blocks/contact/contact.css', array(), '1.0.0' );
-      }
+    'mode'			      => 'preview'
     ));
   }
 }
