@@ -20,22 +20,24 @@ $current_slug = add_query_arg( array(), $wp->request );
 ?>
 <div id="contactAlert" >
 
-<?php if (isset($_GET['success'])) {
-  $datas = $_GET['success']; ?>
-  <div class="alert-message success">
-    <span><?php echo $message_success; ?></span></br>
-  </div>
-<?php }
+	<?php if (isset($_GET['success'])) {
+	  $datas = $_GET['success']; ?>
+	  <div class="alert-message success">
+	    <span><?php echo $message_success; ?></span></br>
+	  </div>
+	<?php }
 
-if(array_key_exists('errors', $_SESSION)):
-  if (isset($_GET['errors'])) {
-    $datas = $_GET['errors']; ?>
-    <div class="alert-message error">
-      <span><?php echo $datas; ?></span>
-    </div>
-  <?php }
+	if(array_key_exists('errors', $_SESSION)):
+	  if (isset($_GET['errors'])) {
+	    $datas = $_GET['errors']; ?>
+	    <div class="alert-message error">
+	      <span><?php echo $datas; ?></span>
+	    </div>
+	  <?php }
 
-endif; ?>
+	endif; ?>
+
+</div>
 
 <div class="form1">
 
