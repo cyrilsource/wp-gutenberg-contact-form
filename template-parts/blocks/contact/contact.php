@@ -84,7 +84,66 @@ unset($_SESSION['input']);
 
 ?>
 
-<style type="text/css">
+<style type="text/css">	
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.form1 input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.form1 input[type=email], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.form1 input[type=url], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.form1 input[type=tel], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+textarea {
+  height: 150px;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+.container {
+  padding: 20px;
+}
+
+.alert-message.error {
+  background-color: red;
+  padding: 10px;
+  line-height: 2em;
+}
+
+.alert-message span {
+  color: white;
+}
 .form1 button {
   background-color: <?php echo $color_; ?>;
   color:  <?php echo $color_text_bouton_send; ?>;
