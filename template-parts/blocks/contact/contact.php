@@ -13,11 +13,14 @@ $color_hover = get_field('color_hover');
 $size_font_sent_message = get_field('size_font_sent_message');
 $to = get_field('to');
 
+//get the current page slug for the redirect after form sending
+global $wp;
+$current_slug = add_query_arg( array(), $wp->request );
+
 if (isset($_GET['success'])) {
   $datas = $_GET['success']; ?>
   <div class="alert-message success">
     <span><?php echo $message_success; ?></span></br>
-    <span><strong><?php echo $datas; ?></strong></span>
   </div>
 <?php }
 
@@ -43,35 +46,35 @@ endif; ?>
 
             switch ($label) {
               case 'name': ?>
-                <label for="<?php echo $label; ?>"><?php echo $label; ?></label>
-            <input type="text" name="<?php echo $label; ?>" id="<?php echo $label; ?>" value="<?= isset($_SESSION['input']['nom']) ? $_SESSION['input']['nom']:'';   ?>" /><?php
+                <label for="name">name</label>
+            <input type="text" name="name" id="name" value="<?= isset($_SESSION['input']['name']) ? $_SESSION['input']['name']:'';   ?>" /><?php
                 break;
                case 'email': ?>
-                <label for="<?php echo $label; ?>"><?php echo $label; ?></label>
-            <input type="email" name="<?php echo $label; ?>" id="<?php echo $label; ?>" value="<?= isset($_SESSION['input']['email']) ? $_SESSION['input']['email']:'';   ?>" /><?php
+                <label for="email">email</label>
+            <input type="email" name="email" id="email" value="<?= isset($_SESSION['input']['email']) ? $_SESSION['input']['email']:'';   ?>" /><?php
                 break;
               case 'phone': ?>
-                <label for="<?php echo $label; ?>"><?php echo $label; ?></label>
-                <input type="text" name="<?php echo $label; ?>" id="<?php echo $label; ?>" value="<?= isset($_SESSION['input']['téléphone']) ? $_SESSION['input']['téléphone']:'';   ?>" /><?php
+                <label for="phone">phone</label>
+                <input type="text" name="phone" id="phone" value="<?= isset($_SESSION['input']['phone']) ? $_SESSION['input']['phone']:'';   ?>" /><?php
                 break;
-               case 'web site': ?>
-                <label for="<?php echo $label; ?>"><?php echo $label; ?></label>
-                <input type="url" name="<?php echo $label; ?>" id="<?php echo $label; ?>" value="<?= isset($_SESSION['input']['site web']) ? $_SESSION['input']['site web']:'';   ?>" /><?php
+               case 'url': ?>
+                <label for="url">url</label>
+                <input type="url" name="url" id="url" value="<?= isset($_SESSION['input']['url']) ? $_SESSION['input']['url']:'';   ?>" /><?php
                 break;
                case 'subject': ?>
-                <label for="<?php echo $label; ?>"><?php echo $label; ?></label>
-                <input type="text" name="<?php echo $label; ?>" id="<?php echo $label; ?>" value="<?= isset($_SESSION['input']['sujet']) ? $_SESSION['input']['sujet']:'';   ?>" /><?php
+                <label for="subject">subject</label>
+                <input type="text" name="subject" id="subject" value="<?= isset($_SESSION['input']['subject']) ? $_SESSION['input']['subject']:'';   ?>" /><?php
                 break;
               default: ?>
-                <label for="<?php echo $label; ?>"><?php echo $label; ?></label>
-        <textarea name="<?php echo $label; ?>" id="<?php echo $label; ?>" rows="20" cols="30"><?= isset($_SESSION['input']['message']) ? $_SESSION['input']['message']:'';   ?></textarea><?php
+                <label for="subject">Message</label>
+        <textarea name="message" id="message" rows="20" cols="30"><?= isset($_SESSION['input']['message']) ? $_SESSION['input']['message']:'';   ?></textarea><?php
                 break;
             }
 
       endwhile; ?>
       <button id="submit" type="submit"><?php echo $text_bouton_envoi; ?></button>
-      <input type="hidden" name="submitted" id="submitted" value="true" />
       <input type="hidden" name="to" id="to" value="<?php echo $to; ?>" />
+      <input type="hidden" name="current_slug" id="current_slug" value="<?php echo $current_slug; ?>" />
   </form>
 </div>
 <?php else :
