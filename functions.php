@@ -66,7 +66,7 @@ function contact_form() {
             $_SESSION['errors'] = $errors;
             $_SESSION['input'] = $_POST;
 
-           wp_redirect( esc_url( add_query_arg( 'errors', $datas, home_url().'/'.$current_slug.'/#contactAlert') ) );
+            wp_redirect( esc_url( add_query_arg( 'errors', $datas, home_url().'/'.$current_slug.'/#contactAlertError') ) );
 
             exit();
 
@@ -76,7 +76,7 @@ function contact_form() {
             $to = $_POST['to'];
             //get the url for the redirection
             $current_slug = $_POST['current_slug'];
-            unset($_POST['to']);
+            
             //get off the variable in $_POST
             $element = $_POST['contact-verif'];
             unset($_POST[array_search($element, $_POST)]);
@@ -93,10 +93,10 @@ function contact_form() {
             $sent_ok = mail($to, 'message from contact form', $datas);
             //and response if success or error
             if ($sent_ok==true) {
-               wp_redirect( esc_url( add_query_arg( 'success', home_url().'/'.$current_slug.'/#contactAlert' ) ) );
+                wp_redirect( esc_url( add_query_arg( 'success', home_url().'/'.$current_slug.'/#contactAlertSuccess' ) ) );
             }
             else{
-              wp_redirect( esc_url( add_query_arg( 'error', 'zut ça ma marche pas. Veuillez réessayer plus tard', home_url().'/'.$current_slug.'/#contactAlert' ) ) );
+                wp_redirect( esc_url( add_query_arg( 'error', 'zut ça ma marche pas. Veuillez réessayer plus tard', home_url().'/'.$current_slug.'/#contactAlertError' ) ) );
             }
 
             exit();
