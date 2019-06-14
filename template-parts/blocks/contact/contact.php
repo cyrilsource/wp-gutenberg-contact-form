@@ -17,7 +17,10 @@ $to = get_field('to');
 global $wp;
 $current_slug = add_query_arg( array(), $wp->request );
 
-if (isset($_GET['success'])) {
+?>
+<div id="contactAlert" >
+
+<?php if (isset($_GET['success'])) {
   $datas = $_GET['success']; ?>
   <div class="alert-message success">
     <span><?php echo $message_success; ?></span></br>
