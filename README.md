@@ -8,7 +8,7 @@ in your ACF settings, you create a Field group 'block:ContactForm'
 In group field you create repeater field 'input' 
 in the repeater field, you create a radio button 'label' with a list of choices
 
-name,email,phone,web site,subject,message
+name,email,phone,url,subject,message
 
 After you create other fields:
 
