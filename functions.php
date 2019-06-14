@@ -23,7 +23,7 @@ function my_acf_contactForm() {
 //treatment contact form
 function contact_form() {
 
-  if (isset($_POST['submitted']) && isset($_POST['contact-verif']))  {
+  if (isset($_POST['contact-verif']))  {
 
       if (wp_verify_nonce($_POST['contact-verif'], 'contact-form')) {
 
@@ -47,9 +47,9 @@ function contact_form() {
             }
           }
 
-          if (isset($_POST['web site'])) {
-            if(!array_key_exists('site web', $_POST) || $_POST['web site'] == '' || !filter_var($_POST['web site'], FILTER_VALIDATE_URL)) {
-              $errors['web site'] = "no valid web site";
+          if (isset($_POST['url'])) {
+            if(!array_key_exists('url', $_POST) || $_POST['web site'] == '' || !filter_var($_POST['url'], FILTER_VALIDATE_URL)) {
+              $errors['url'] = "no valid web site";
             }
           }
 
@@ -60,41 +60,49 @@ function contact_form() {
           }
 
           if (!empty($errors)) {
+            // make string the array of errors
+            $datas = implode(" / ", $errors);
+            // get the current_slug for the redirection
+            $current_slug = $_POST['current_slug'];
 
-              $datas = implode(" / ", $errors);
+            session_start();
+            $_SESSION['errors'] = $errors;
+            $_SESSION['input'] = $_POST;
 
-              session_start();
-              $_SESSION['errors'] = $errors;
-              $_SESSION['input'] = $_POST;
+           wp_redirect( esc_url( add_query_arg( 'errors', $datas, home_url().'/'.$current_slug.'/#contactAlert') ) );
 
-              wp_redirect( esc_url( add_query_arg( 'errors', $datas, home_url().'/contact' ) ) );
-
-              exit();
+            exit();
 
           }
           else {
-              $element = $_POST['contact-verif'];
-              unset($_POST[array_search($element, $_POST)]);
-              $element2 = $_POST['_wp_http_referer'];
-              unset($_POST[array_search($element2, $_POST)]);
-              $element3 = $_POST['submitted'];
-              unset($_POST[array_search($element3, $_POST)]);
-              $to = $_POST['to'];
-              //we get off the recipient in the array
-              unset($_POST['to']);
+            // get the recipient
+            $to = $_POST['to'];
+            //get the url for the redirection
+            $current_slug = $_POST['current_slug'];
+            unset($_POST['to']);
+            //get off the variable in $_POST
+            $element = $_POST['contact-verif'];
+            unset($_POST[array_search($element, $_POST)]);
+            $element2 = $_POST['_wp_http_referer'];
+            unset($_POST[array_search($element2, $_POST)]);
+            $element3 = $_POST['submitted'];
+            unset($_POST[array_search($element3, $_POST)]);
+            unset($_POST['to']);
+            unset($_POST['current_slug']);
+            
+            //make a string with data from contact form
+            $datas = implode(" / ", $_POST);
+            // send email
+            $sent_ok = mail($to, 'message from contact form', $datas);
+            //and response if success or error
+            if ($sent_ok==true) {
+               wp_redirect( esc_url( add_query_arg( 'success', home_url().'/'.$current_slug.'/#contactAlert' ) ) );
+            }
+            else{
+              wp_redirect( esc_url( add_query_arg( 'error', 'zut ça ma marche pas. Veuillez réessayer plus tard', home_url().'/'.$current_slug.'/#contactAlert' ) ) );
+            }
 
-              $datas = implode(" / ", $_POST);
-
-              $sent_ok = mail($to, 'message from contact form', $datas);
-
-              if ($sent_ok==true) {
-                wp_redirect( esc_url( add_query_arg( 'success', home_url().'/contact' ) ) );
-              }
-              else{
-                wp_redirect( esc_url( add_query_arg( 'error', 'something is wrong', home_url().'/contact' ) ) );
-              }
-
-              exit();
+            exit();
           }
 
       }
