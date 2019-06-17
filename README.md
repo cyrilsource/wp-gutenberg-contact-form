@@ -14,11 +14,11 @@ After you create other fields:
 
 text field 'message_succes'
 
-text field 'texte_bouton_send'
+text field 'text_button_send'
 
 color field 'color_'
 
-color field 'color_text_bouton_send'
+color field 'color_text_button_send'
 
 color field 'color_hover
 
