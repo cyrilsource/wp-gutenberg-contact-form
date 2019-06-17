@@ -3,7 +3,7 @@ a contact form form for WordPress Gutenberg with ACF plugin
 
 For this, you need ACF plugin pro version
 
-in your ACF settings, you create a Field group 'block:ContactForm'
+in your ACF settings, you create a Field group 'block: contact'
 
 In group field you create repeater field 'input' 
 in the repeater field, you create a radio button 'label' with a list of choices
