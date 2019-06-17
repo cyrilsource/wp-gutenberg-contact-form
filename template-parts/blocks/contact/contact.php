@@ -6,9 +6,9 @@
  */
 
 $message_success = get_field('message_succes');
-$text_bouton_send = get_field('texte_bouton_send');
+$text_bouton_send = get_field('text_button_send');
 $color_ = get_field('color_');
-$color_text_bouton_send = get_field('color_text_bouton_send');
+$color_text_button_send = get_field('color_text_bouton_send');
 $color_hover = get_field('color_hover');
 $size_font_sent_message = get_field('size_font_sent_message');
 $to = get_field('to');
@@ -73,7 +73,7 @@ endif; ?>
 		break;
 		}
 	endwhile; ?>
-      	<button id="submit" type="submit"><?php echo $text_bouton_envoi; ?></button>
+      	<button id="submit" type="submit"><?php echo $text_button_send; ?></button>
       	<input type="hidden" name="to" id="to" value="<?php echo $to; ?>" />
       	<input type="hidden" name="current_slug" id="current_slug" value="<?php echo $current_slug; ?>" />
  	</form>
@@ -155,7 +155,7 @@ label {
 }
 .form1 button {
   background-color: <?php echo $color_; ?>;
-  color:  <?php echo $color_text_bouton_send; ?>;
+  color:  <?php echo $color_text_button_send; ?>;
   padding: 12px 20px;
   border: none;
   border-radius: 4px;
