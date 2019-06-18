@@ -63,7 +63,6 @@ function contact_form() {
             $current_slug = $_POST['current_slug'];
 
             session_start();
-            $_SESSION['errors'] = $errors;
             $_SESSION['input'] = $_POST;
 
             wp_redirect( esc_url( add_query_arg( 'errors', $datas, home_url().'/'.$current_slug.'/#contactAlertError') ) );
