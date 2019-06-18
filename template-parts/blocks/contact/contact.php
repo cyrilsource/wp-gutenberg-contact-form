@@ -26,17 +26,14 @@ if (isset($_GET['success'])) {
 	</div>
 <?php }
 
-if(array_key_exists('errors', $_SESSION)):
-	if (isset($_GET['errors'])) {
+if (isset($_GET['errors'])) {
 	$datas = $_GET['errors']; ?>
 	<div id="contactAlertError">
 	</div>
 	<div class="alert-message error">
 		<span><?php echo $datas; ?></span>
 	</div>
-	<?php }
-
-endif; ?>
+<?php }
 
 <div class="form1">
 	<?php if( have_rows('input') ): ?>
