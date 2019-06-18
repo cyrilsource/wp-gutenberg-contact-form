@@ -79,10 +79,6 @@ function contact_form() {
             //get off the variable in $_POST
             $element = $_POST['contact-verif'];
             unset($_POST[array_search($element, $_POST)]);
-            $element2 = $_POST['_wp_http_referer'];
-            unset($_POST[array_search($element2, $_POST)]);
-            $element3 = $_POST['submitted'];
-            unset($_POST[array_search($element3, $_POST)]);
             unset($_POST['to']);
             unset($_POST['current_slug']);
             
