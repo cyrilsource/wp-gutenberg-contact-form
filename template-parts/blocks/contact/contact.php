@@ -80,7 +80,6 @@ if (isset($_GET['errors'])) {
     // no rows found
 
 endif;
-unset($_SESSION['errors']);
 unset($_SESSION['input']);
 
 ?>
