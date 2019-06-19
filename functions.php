@@ -17,6 +17,8 @@ function my_acf_contactForm() {
   }
 }
 
+add_action('acf/init', 'my_acf_contactForm');
+
 //treatment contact form
 function contact_form() {
 
