@@ -21,7 +21,7 @@ if (isset($_GET['success'])) { ?>
 	<div id="contactAlertSuccess">
 	</div>
 	<div class="alert-message success">
-		<span><?php echo $message_succes; ?></span>
+		<span><?php echo $message_success; ?></span>
 	</div>
 <?php }
 
