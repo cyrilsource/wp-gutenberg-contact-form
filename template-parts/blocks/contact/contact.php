@@ -5,7 +5,7 @@
  * This is the template that displays the contact form block.
  */
 
-$message_success = get_field('message_succes');
+$message_success = get_field('message_success');
 $text_button_send = get_field('text_button_send');
 $color_ = get_field('color_');
 $color_text_button_send = get_field('color_text_bouton_send');
