@@ -8,7 +8,7 @@
 $message_success = get_field('message_success');
 $text_button_send = get_field('text_button_send');
 $color_ = get_field('color_');
-$color_text_button_send = get_field('color_text_bouton_send');
+$color_text_button_send = get_field('color_text_button_send');
 $color_hover = get_field('color_hover');
 $size_font_sent_message = get_field('size_font_sent_message');
 $to = get_field('to');
